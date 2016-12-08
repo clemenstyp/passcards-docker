@@ -1,2 +1,6 @@
 # passcards-docker
-a passcards docker file (for https://github.com/robertknight/passcards)
+a docker file for passcards installation
+
+passcards: https://github.com/robertknight/passcards
+
+you'll have to change the dropbox key and it will start a server on port 3000

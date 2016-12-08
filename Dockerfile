@@ -18,8 +18,7 @@ RUN cd /root && export GIT_SSL_NO_VERIFY=1 && \
     git clone https://github.com/robertknight/passcards
 
 WORKDIR /root/passcards
-RUN cd /root/passcards && npm install
-RUN cd /root/passcards && make all
+RUN cd /root/passcards && npm install && make all
 
 
 # Baseimage init process

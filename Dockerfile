@@ -10,7 +10,7 @@ RUN apt-get install -y phantomjs
 RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 RUN apt-get install -y git
 RUN apt-get install -y nodejs
-RUN sudo apt-get install -y build-essential
+RUN apt-get install -y build-essential
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 #install passcards
@@ -23,7 +23,7 @@ RUN cd /root && export GIT_SSL_NO_VERIFY=1 && \
 #    cat dropbox.ts.old | sed -e "s/.*export const CLIENT_ID = .*/export const CLIENT_ID = 'cx3t9zabn95ggjp';/" > dropbox.ts
 
 WORKDIR /root/passcards
-RUN cd /root/passcards && npm install && make all
+RUN cd /root/passcards && npm install -y crypto &&  npm install -y typescript && npm install && make test && make all
 
 
 # Baseimage init process

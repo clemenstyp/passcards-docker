@@ -3,16 +3,19 @@ MAINTAINER	Clemens Putschli <clemens@putschli.de>
 
 #Install node js
 RUN \
-    sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
     apt-get update && \
-    apt-get -y upgrade && \
+    apt-get -y upgrade
+RUN \
     apt-get install -y sudo && \
-    apt-get install -y curl && \
-    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && \
+    apt-get install -y curl
+RUN \
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+RUN \
     apt-get install -y git && \
     apt-get install -y nodejs && \
     apt-get install -y npm && \
-    sudo apt-get install -y build-essential && \
+    sudo apt-get install -y build-essential
+RUN \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 #install passcards
